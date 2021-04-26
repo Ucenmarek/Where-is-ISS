@@ -38,8 +38,8 @@ async function getIss(){
 
     }
    
-    document.getElementById("lat").textContent = latitude
-    document.getElementById("lot").textContent = longitude
+    document.getElementById("lat").textContent = latitude.toFixed(2)
+    document.getElementById("lot").textContent = longitude.toFixed(2)
 }
 getIss()
 
