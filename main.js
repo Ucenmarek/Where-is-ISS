@@ -16,6 +16,9 @@ async function getIss(){
     const data = await responze.json()
     console.log(data)
     const{ latitude , longitude }=data
+    //pridanie značky na mapu
+    L.marker([latitude, longitude]).addTo(mymap)
+
     document.getElementById("lat").textContent = latitude
     document.getElementById("lot").textContent = longitude
 }
