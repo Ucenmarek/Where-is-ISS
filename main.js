@@ -1,7 +1,7 @@
 
 
  const mymap = L.map('mapid').setView([0, 0], 1);
-
+const marker = L.marker([0, 0]).addTo(mymap)
 const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
@@ -16,8 +16,9 @@ async function getIss(){
     const data = await responze.json()
     console.log(data)
     const{ latitude , longitude }=data
-    //pridanie značky na mapu
-    L.marker([latitude, longitude]).addTo(mymap)
+    //pridanie značky na mapu na pozíciu
+    // L.marker([latitude, longitude]).addTo(mymap)
+    marker.setLatLng([latitude,longitude])
 
     document.getElementById("lat").textContent = latitude
     document.getElementById("lot").textContent = longitude
