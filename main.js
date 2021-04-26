@@ -21,6 +21,8 @@ const marker = L.marker([0, 0],{icon:issIcon}).addTo(mymap)
 
 
 let url_iss = "https://api.wheretheiss.at/v1/satellites/25544"
+
+let firsTime = true
 async function getIss(){
     const responze = await fetch(url_iss)
     const data = await responze.json()
@@ -30,8 +32,12 @@ async function getIss(){
     // L.marker([latitude, longitude]).addTo(mymap)
     marker.setLatLng([latitude,longitude])
     // nastavenie stredu mapy na ISS + zoom
-    mymap.setView([latitude,longitude],4)
+    if(firsTime){
+        mymap.setView([latitude,longitude],4)
+        firsTime = false
 
+    }
+   
     document.getElementById("lat").textContent = latitude
     document.getElementById("lot").textContent = longitude
 }
