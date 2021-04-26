@@ -29,6 +29,8 @@ async function getIss(){
     //pridanie značky na mapu na pozíciu
     // L.marker([latitude, longitude]).addTo(mymap)
     marker.setLatLng([latitude,longitude])
+    // nastavenie stredu mapy na ISS + zoom
+    mymap.setView([latitude,longitude],4)
 
     document.getElementById("lat").textContent = latitude
     document.getElementById("lot").textContent = longitude
