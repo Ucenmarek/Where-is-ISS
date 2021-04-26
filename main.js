@@ -36,3 +36,5 @@ async function getIss(){
     document.getElementById("lot").textContent = longitude
 }
 getIss()
+
+setInterval(getIss,1000)
